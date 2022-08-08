@@ -81,38 +81,38 @@ function Auction(props) {
     <h1>Products</h1>
     <br />
     <main className="content">
-  <div className="d-flex">
+  <div className="mb-5">
 <Link to="/AddAuctionAdmin" className="bttn btn-add"><h2><span>Add</span></h2> </Link>
 </div>
 
-<table>
+<table class="table">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>image</th>
-              <th>Description</th>
-              <th>Minimam Price</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Is Accept</th>
-              <th>Action</th>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">image</th>
+              <th scope="col">Description</th>
+              <th scope="col">Minimam Price</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Is Accept</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
             
             {aution?.map((info) =>
             <>
-            <tr className='td-data' key={info}>
+            <tr className='' key={info}>
             
-              <th>{info.id}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.name}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}><img src={info.img} style={{width:'100px', height:'100px'}}/></th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.description}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.min_price}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.start_date}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.end_date}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.is_acc}</th>
+              <td>{info.id}</td>
+              <td >{info.name}</td>
+              <td ><img src={'img/'+info.img} style={{width:'100px', height:'100px'}}/></td>
+              <td >{info.description}</td>
+              <td >{info.min_price}</td>
+              <td >{info.start_date}</td>
+              <td >{info.end_date}</td>
+              <td >{info.is_acc}</td>
               <td>
               <button className="bttn" style={{background:'#b88b68ec'}} 
               onClick={(e)=>{e.preventDefault();
@@ -121,10 +121,11 @@ function Auction(props) {
                 sessionStorage.setItem('des',info.description); 
                 sessionStorage.setItem('price',info.min_price); 
                 sessionStorage.setItem('start',info.start_date); 
-                sessionStorage.setItem('end',info.end_date);              
+                sessionStorage.setItem('end',info.end_date); 
+                sessionStorage.setItem('img',info.img);             
                 window.location=`/EditAuctionAdmin/${info.id}/edit`}}>Edit</button>
 
-               <button className="bttn btn-delete" style={{background:'#b30909'}} onClick={()=>deleteAuction(info.id)} >Delete</button> 
+               <button className="bttn btn-delete" style={{background:'#b88b68ec'}} onClick={()=>deleteAuction(info.id)} >Delete</button> 
                </td>
             </tr>
             </>
@@ -137,9 +138,7 @@ function Auction(props) {
   </article>
  </section>
 
-  <footer className='ad-foo'>
-  <p> All Rights Reserved, 2022 &copy;</p>
-</footer>
+
 
 </>
 

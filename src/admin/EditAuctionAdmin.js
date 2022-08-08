@@ -4,22 +4,25 @@ import {Link , useParams} from 'react-router-dom';
 // import './addAuc.css';
 
 function EditAuctionAdmin() {
-    
+  const postId=sessionStorage.getItem('postId');
+  const namee=sessionStorage.getItem('name');
+  const dess=sessionStorage.getItem('des');
+  const pricee=sessionStorage.getItem('price');
+  const startt=sessionStorage.getItem('start');
+  const endd=sessionStorage.getItem('end');
+  const imge=sessionStorage.getItem('img')
+
+
         const[isSubmit,setSubmit]=useState([]);
-        const [name, setName] = useState();
-        const [des, setDes] = useState('');
-        const [img, setImg] = useState('');
-        const [price, setPrice] = useState('');
-        const [start, setStart] = useState('');
-        const [end, setEnd] = useState('');
+        const [name, setName] = useState(namee);
+        const [des, setDes] = useState(dess);
+        const [img, setImg] = useState(imge);
+        const [price, setPrice] = useState(pricee);
+        const [start, setStart] = useState(startt);
+        const [end, setEnd] = useState(endd);
         const [isacc, setIsacc] = useState('');
         
-        const postId=sessionStorage.getItem('postId');
-        const namee=sessionStorage.getItem('name');
-        const dess=sessionStorage.getItem('des');
-        const pricee=sessionStorage.getItem('price');
-        const startt=sessionStorage.getItem('start');
-        const endd=sessionStorage.getItem('end');
+      ;
         // const [input, setInputs] = useState([]);
     
     
@@ -41,7 +44,7 @@ function EditAuctionAdmin() {
 
         const handleSubmit =(e)=>{
             e.preventDefault();
-            axios.post('http://localhost/last_admin9/API/editauction.php?id='+postId+'&name='+name+'&des='+des+'&img='+img+'&price='+price+'&start='+start+'&end='+end+'&isacc='+isacc)
+            axios.post('http://localhost/last_admin9/API/editauction.php?id='+postId+'&name='+name+'&des='+des+'&price='+price+'&start='+start+'&end='+end+'&isacc='+isacc)
             
             .then((data) => {
                 console.log("success!");
@@ -97,9 +100,12 @@ function EditAuctionAdmin() {
   
   <article className='ad-artic'>
     <br />
-    <div className='text-center message' style={{ display:isSubmit?"none":"block"}}>
+    <div class="alert alert-success" role="alert" style={{ display:isSubmit?"none":"block"}}>
+    Edit successfully!
+</div>
+    {/* <div className='text-center message' style={{ display:isSubmit?"none":"block"}}>
               <p>Edit successfully</p>
-    </div>
+    </div> */}
 
     <div className="containerr">
   <div className="title">
@@ -113,8 +119,8 @@ function EditAuctionAdmin() {
       <span className="des">Description <span className="required" >*</span></span>
       <input type="text" name="des" required onChange={desHandel} defaultValue={dess}/>
 
-      <span>Select image: <span className="required">*</span></span>
-      <input type="file" id="img" name="img" accept="image/*" className='img' required onChange={imgHandel}/>
+      {/* <span>Select image: <span className="required">*</span></span>
+      <input type="file" id="img" name="img" accept="image/*" className='img' required onChange={imgHandel}/> */}
 
       <span>Price <span className="required">*</span></span>
       <input type="number" name="price" required onChange={priceHandel} defaultValue={pricee}/> 

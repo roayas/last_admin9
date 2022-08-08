@@ -16,7 +16,7 @@ function Users() {
 }, [user]);
 
     function getauction(){
-    axios.get(`http://localhost/redux-project9/API/adminuser.php`)
+    axios.get(`http://localhost/last_admin9//API/adminuser.php`)
       // console.log(aa)
       .then((res) => {
         //  console.log(res)
@@ -82,11 +82,11 @@ function Users() {
     <h1>Users</h1>
     <br />
     <main className="content"  style={{width:'800px'}}>
-  <div className="d-flex">
+  <div style={{marginBottom:'100px'}}>
   <Link to="/AddUserAdmin" className="bttn btn-add" style={{left:'38%'}}><h2><span>Add</span></h2> </Link>
 </div>
 
-<table>
+<table class="table">
           <thead>
           <tr>
               <th>ID</th>
@@ -104,14 +104,14 @@ function Users() {
             <>
             <tr className='td-data' key={info}>
             
-              <th>{info.user_id}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.username}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.email}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.phone}</th>
-              <th style={{borderLeft:'2px lightgray solid'}}>{info.address}</th>
+              <td>{info.user_id}</td>
+              <td >{info.username}</td>
+              <td >{info.email}</td>
+              <td >{info.phone}</td>
+              <td >{info.address}</td>
 
               <td>
-              <button className="btn" style={{background:'#b88b68ec', width:'120px'}} onClick={(e)=>{e.preventDefault();
+              <button className="btn ml-5" style={{background:'#b88b68ec', }} onClick={(e)=>{e.preventDefault();
               sessionStorage.setItem('uId',info.user_id);
               sessionStorage.setItem('uNamee',info.username);
               sessionStorage.setItem('uEmail',info.email);
@@ -119,7 +119,7 @@ function Users() {
               sessionStorage.setItem('uAdd',info.address);
                
               window.location=`/EditUserAdmin/${info.user_id}/edit`}}>Edit</button>
-              <button className="btn btn-delete" style={{background:'#b30909', width:'120px'}} onClick={()=>deleteuser(info.user_id)}>Delete</button>
+              <button className="btn btn-delete" style={{background:'#b88b68ec',}} onClick={()=>deleteuser(info.user_id)}>Delete</button>
                </td>
             </tr>
             </>
@@ -132,9 +132,7 @@ function Users() {
   </article>
  </section>
 
-  <footer className='ad-foo'>
-  <p> All Rights Reserved, 2022 &copy;</p>
-</footer>
+  
 
 
 

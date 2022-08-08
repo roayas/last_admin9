@@ -4,19 +4,21 @@ import {Link , useParams} from 'react-router-dom';
 import './addAuc.css';
 
 function EditUserAdmin() {
-    
+  const uId=sessionStorage.getItem('uId');
+  const uNamee=sessionStorage.getItem('uNamee');
+  const uEmail=sessionStorage.getItem('uEmail');
+  const uPhone=sessionStorage.getItem('uPhone');
+  const uAdd=sessionStorage.getItem('uAdd');
+
+
         const[isSubmit,setSubmit]=useState([]);
-        const [username, setUsername] = useState();
-        const [email, setEmail] = useState('');
+        const [username, setUsername] = useState(uNamee);
+        const [email, setEmail] = useState(uEmail);
         const [password, setPassword] = useState('');
-        const [	address, setAddress] = useState('');
-        const [phone, setPhone] = useState('');
+        const [	address, setAddress] = useState(uAdd);
+        const [phone, setPhone] = useState(uPhone);
         
-        const uId=sessionStorage.getItem('uId');
-        const uNamee=sessionStorage.getItem('uNamee');
-        const uEmail=sessionStorage.getItem('uEmail');
-        const uPhone=sessionStorage.getItem('uPhone');
-        const uAdd=sessionStorage.getItem('uAdd');
+     
         // const [input, setInputs] = useState([]);
     
     
@@ -89,9 +91,12 @@ function EditUserAdmin() {
   
   <article className='ad-artic'>
     <br />
-    <div className='text-center message' style={{ display:isSubmit?"none":"block"}}>
+    <div class="alert alert-success" role="alert" style={{ display:isSubmit?"none":"block"}}>
+    Edit successfully!
+</div>
+    {/* <div className='text-center message' style={{ display:isSubmit?"none":"block"}}>
               <p>Edit successfully</p>
-    </div>
+    </div> */}
 
     <div className="containerr">
   <div className="title">

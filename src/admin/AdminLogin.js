@@ -52,20 +52,22 @@ function AdminLogin() {
 }
     return(
       <> 
+  
 {/* <script src='back.js'></script> */}
-<section className='divv'>
+<section >
           <br />
         <div className="login-wrapper ">
-          {/* <span className='title-epic'>Epic Antiques</span> */}
-        <h1>Admin Login</h1>
+        
+        
         <form className='form-group formm' onSubmit={handleFormSubmit}>
-          <label className='lbl'> Email </ label><br/><br/><br/>
-            <input type="text" className='form-control inp' placeholder='Your Email' 
+        <h1>Admin Login</h1>
+          <label > Email </ label>
+            <input type="text" className='form-control ' placeholder='Your Email' 
             onChange={handleEmailChange} value={email}/>
             {emailError&&<div className='error-msg'>{emailError}</div>}       
 
-          <label className='lbl'>Password </label><br/><br/><br/>
-            <input type="password" className='form-control inp' placeholder='Your Password'
+          <label >Password </label>
+            <input type="password" className='form-control ' placeholder='Your Password'
             onChange={handlePasswordChange} value={password}/>
             {passwordError&&<div className='error-msg'>{passwordError}</div>}       
         <br/>
@@ -74,7 +76,7 @@ function AdminLogin() {
           </div>
           <br/>
         </form>
-        </div><br/><br/>
+        </div>
        </section>
       </>
     );

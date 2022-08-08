@@ -21,7 +21,7 @@ function Dashboard() {
     <img src='https://media.discordapp.net/attachments/1002099207177523221/1004446034447056906/Untitled-221.png' alt='' width={'60px'}/>
     <span className='title-epic'>Epic Antiques</span></div>
   <div className='ad-img-logo'>Admin Dashboard</div>
-  <div className='ad-name'>admin@mail.com</div>
+  <div className=''>admin@mail.com</div>
 </header>
 
 <section className='ad-sec'>
@@ -30,7 +30,7 @@ function Dashboard() {
     <ul>
     <li className='activee' >
       <Link to="" className="ad-aa ">
-          D a s h b o a r d
+          Dashboard
           </Link>
        </li>
       <li>
